@@ -60,15 +60,26 @@
   .card--live { cursor:pointer; }
   .card--live:hover { transform:translateY(-5px); box-shadow:0 16px 44px rgba(0,0,0,0.14); }
   .card--soon { opacity:0.62; }
-  .card__banner { position:relative; height:128px; display:flex; align-items:flex-start; }
-  .card__kicker { position:absolute; left:18px; bottom:14px; color:rgba(255,255,255,0.92);
-                  font-size:13px; font-weight:600; letter-spacing:0.01em;
-                  text-shadow:0 1px 3px rgba(0,0,0,0.25); }
+  .card__banner { position:relative; height:150px; overflow:hidden; }
+  .card__banner--gray { background:#e3e3e8; }
+  .sec--dark .card__banner--gray { background:#3a3a3c; }
+  .card__img { width:100%; height:100%; object-fit:cover; display:block; }
+  .card__shade { position:absolute; inset:0; pointer-events:none;
+                 background:linear-gradient(180deg,rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 32%,rgba(0,0,0,0) 58%,rgba(0,0,0,0.34) 100%); }
+  .card__kicker { position:absolute; left:18px; bottom:13px; font-size:13px; font-weight:600;
+                  letter-spacing:0.01em; z-index:2; }
   .card__badge { position:absolute; top:14px; left:14px; padding:4px 12px; border-radius:980px;
-                 font-size:11px; font-weight:600; letter-spacing:0.02em; color:#fff;
-                 background:rgba(255,255,255,0.22); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
-  .card__go { position:absolute; top:13px; right:16px; color:#fff; font-size:14px; font-weight:500;
-              text-shadow:0 1px 3px rgba(0,0,0,0.25); }
+                 font-size:11px; font-weight:600; letter-spacing:0.02em; z-index:2;
+                 backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+  .card__go { position:absolute; top:13px; right:16px; font-size:14px; font-weight:500; z-index:2; }
+  /* 사진 배너 — 흰 텍스트 + 그림자 */
+  .card__banner--img .card__kicker, .card__banner--img .card__go { color:#fff; text-shadow:0 1px 3px rgba(0,0,0,0.45); }
+  .card__banner--img .card__badge { color:#fff; background:rgba(0,0,0,0.34); }
+  /* 회색 배너 — 어두운 텍스트 */
+  .card__banner--gray .card__kicker { color:#86868b; }
+  .sec--dark .card__banner--gray .card__kicker { color:#9b9ba3; }
+  .card__banner--gray .card__badge { color:#6e6e73; background:rgba(0,0,0,0.07); }
+  .sec--dark .card__banner--gray .card__badge { color:#c7c7cc; background:rgba(255,255,255,0.13); }
   .card__body { padding:22px 22px 26px; }
   .card__title { font-size:19px; font-weight:700; line-height:1.32; letter-spacing:-0.01em;
                  margin-bottom:9px; color:var(--t-primary); }
@@ -123,9 +134,9 @@
     <h2 class="sec__title reveal">클로드 시작하기</h2>
     <p class="sec__desc reveal">처음 켜는 순간부터 5분 세팅까지</p>
     <div class="epgrid">
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-vs-chatgpt.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">클로드 사용법 입문 — 챗GPT와 뭐가 다를까</div><div class="card__desc">클로드와 챗GPT의 차이를 직장인 관점에서 비교합니다. 어떤 업무에 클로드가 더 잘 맞는지, 무엇부터 시켜보면 좋은지 감을 잡는 첫 편.</div></div></a>
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-setup-5min.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">요금제부터 첫 세팅까지 — 무료로 시작하는 5분 가이드</div><div class="card__desc">회원가입, 무료·유료 요금제 선택, 첫 화면 기본 설정까지. 고민 없이 5분 안에 바로 쓰기 시작하도록 따라 하는 세팅 가이드.</div></div></a>
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-use-cases-map.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#0a84ff,#5e5ce6)"><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">활용법 총정리 — 직장인이 클로드로 할 수 있는 일</div><div class="card__desc">보고서·메일·분석·기획 등 직장인이 클로드로 할 수 있는 일을 한 장의 지도로 정리합니다. 시리즈 전체의 길잡이가 되는 허브 편.</div></div></a>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-vs-chatgpt.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-20_claude-vs-chatgpt/img1.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">클로드 사용법 입문 — 챗GPT와 뭐가 다를까</div><div class="card__desc">클로드와 챗GPT의 차이를 직장인 관점에서 비교합니다. 어떤 업무에 클로드가 더 잘 맞는지, 무엇부터 시켜보면 좋은지 감을 잡는 첫 편.</div></div></a>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-setup-5min.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-20_claude-setup-5min/img1.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">요금제부터 첫 세팅까지 — 무료로 시작하는 5분 가이드</div><div class="card__desc">회원가입, 무료·유료 요금제 선택, 첫 화면 기본 설정까지. 고민 없이 5분 안에 바로 쓰기 시작하도록 따라 하는 세팅 가이드.</div></div></a>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-use-cases-map.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-21_claude-use-cases-map/01-meeting-note-summary.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">클로드 시작하기</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">활용법 총정리 — 직장인이 클로드로 할 수 있는 일</div><div class="card__desc">보고서·메일·분석·기획 등 직장인이 클로드로 할 수 있는 일을 한 장의 지도로 정리합니다. 시리즈 전체의 길잡이가 되는 허브 편.</div></div></a>
     </div>
   </div>
 </section>
@@ -135,10 +146,10 @@
     <h2 class="sec__title reveal">대화의 기술</h2>
     <p class="sec__desc reveal">같은 질문도 다르게 묻는 법</p>
     <div class="epgrid">
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-same-answer.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#bf5af2,#5e5ce6)"><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">프롬프트 작성법 — 왜 늘 똑같은 답만 나올까</div><div class="card__desc">늘 비슷하고 뻔한 답이 나오는 이유를 짚고, 원하는 답을 끌어내는 좋은 질문의 4가지 요소를 정리합니다.</div></div></a>
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-context.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#bf5af2,#5e5ce6)"><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">배경 한 줄이면 답이 달라집니다 — 맥락 넣는 법</div><div class="card__desc">질문에 상황·배경 한 줄을 더하는 것만으로 답의 깊이가 어떻게 달라지는지, 맥락을 넣는 구체적인 방법을 보여줍니다.</div></div></a>
-<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-role.html" target="_blank" rel="noopener"><div class="card__banner" style="background:linear-gradient(135deg,#bf5af2,#5e5ce6)"><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">역할 지정하는 법 — &quot;너는 ~전문가야&quot; 한 줄의 힘</div><div class="card__desc">역할 한 줄로 답의 관점·전문성·말투를 바꾸는 법. 보고서·데이터·고객 응대 등 직무별 역할 프롬프트 모음을 복사해 바로 씁니다.</div></div></a>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#bf5af2,#5e5ce6)"><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">형식 지정 — 예시 하나면 원하는 형식 그대로</div><div class="card__desc">원하는 출력 형식의 예시를 하나만 보여주면 클로드가 그 틀에 맞춰주는 기법. 표·목록·문체를 내 마음대로 고정합니다.</div></div></div>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-same-answer.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-21_claude-prompt-same-answer/01-before-after.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">프롬프트 작성법 — 왜 늘 똑같은 답만 나올까</div><div class="card__desc">늘 비슷하고 뻔한 답이 나오는 이유를 짚고, 원하는 답을 끌어내는 좋은 질문의 4가지 요소를 정리합니다.</div></div></a>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-context.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-23_claude-prompt-context/01-context-before.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">배경 한 줄이면 답이 달라집니다 — 맥락 넣는 법</div><div class="card__desc">질문에 상황·배경 한 줄을 더하는 것만으로 답의 깊이가 어떻게 달라지는지, 맥락을 넣는 구체적인 방법을 보여줍니다.</div></div></a>
+<a class="card card--live reveal" href="https://claudelab.blogspot.com/2026/06/claude-prompt-role.html" target="_blank" rel="noopener"><div class="card__banner card__banner--img"><img class="card__img" src="https://raw.githubusercontent.com/davidlikescat/blog-images/main/2026-06-24_claude-prompt-role/06_role_before.png" alt="" loading="lazy"><span class="card__shade"></span><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--live">공개</span><span class="card__go">읽기 &rsaquo;</span></div><div class="card__body"><div class="card__title">역할 지정하는 법 — &quot;너는 ~전문가야&quot; 한 줄의 힘</div><div class="card__desc">역할 한 줄로 답의 관점·전문성·말투를 바꾸는 법. 보고서·데이터·고객 응대 등 직무별 역할 프롬프트 모음을 복사해 바로 씁니다.</div></div></a>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">대화의 기술</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">형식 지정 — 예시 하나면 원하는 형식 그대로</div><div class="card__desc">원하는 출력 형식의 예시를 하나만 보여주면 클로드가 그 틀에 맞춰주는 기법. 표·목록·문체를 내 마음대로 고정합니다.</div></div></div>
     </div>
   </div>
 </section>
@@ -148,10 +159,10 @@
     <h2 class="sec__title reveal">결과 믿고 쓰기</h2>
     <p class="sec__desc reveal">AI의 답을 검증하고 다듬는 습관</p>
     <div class="epgrid">
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#30d158,#0a84ff)"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">환각 거르는 법 — 자신 있게 틀릴 때 확인하기</div><div class="card__desc">AI가 그럴듯하게 지어내는 환각을 알아채고 걸러내는 확인 습관. 그대로 믿으면 위험한 답을 골라내는 체크 포인트.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#30d158,#0a84ff)"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">거절 풀어내기 — &#x27;도와드리기 어려워요&#x27; 대처법</div><div class="card__desc">정당한 요청인데도 거절이 돌아올 때, 질문을 바꿔 막힌 대화를 풀어내는 방법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#30d158,#0a84ff)"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">수정 요청법 — 첫 답이 아쉬울 때 다듬는 대화</div><div class="card__desc">처음부터 다시 묻지 않고, &#x27;이 부분만 이렇게&#x27; 식으로 대화를 이어 답을 원하는 수준까지 다듬는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#30d158,#0a84ff)"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">긴 대화·컨텍스트 관리 — 대화가 길어지면</div><div class="card__desc">대화가 길어질수록 맥락이 흐려지는 이유와, 긴 작업에서 핵심을 유지하며 끌고 가는 관리법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">환각 거르는 법 — 자신 있게 틀릴 때 확인하기</div><div class="card__desc">AI가 그럴듯하게 지어내는 환각을 알아채고 걸러내는 확인 습관. 그대로 믿으면 위험한 답을 골라내는 체크 포인트.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">거절 풀어내기 — &#x27;도와드리기 어려워요&#x27; 대처법</div><div class="card__desc">정당한 요청인데도 거절이 돌아올 때, 질문을 바꿔 막힌 대화를 풀어내는 방법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">수정 요청법 — 첫 답이 아쉬울 때 다듬는 대화</div><div class="card__desc">처음부터 다시 묻지 않고, &#x27;이 부분만 이렇게&#x27; 식으로 대화를 이어 답을 원하는 수준까지 다듬는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">결과 믿고 쓰기</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">긴 대화·컨텍스트 관리 — 대화가 길어지면</div><div class="card__desc">대화가 길어질수록 맥락이 흐려지는 이유와, 긴 작업에서 핵심을 유지하며 끌고 가는 관리법.</div></div></div>
     </div>
   </div>
 </section>
@@ -161,10 +172,10 @@
     <h2 class="sec__title reveal">글·문서 실무</h2>
     <p class="sec__desc reveal">보고서·메일·기획서를 5분에</p>
     <div class="epgrid">
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff9f0a,#ff375f)"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">글쓰기 초안 — 첫 문장이 안 써질 때 백지 깨기</div><div class="card__desc">백지 앞에서 막힐 때 첫 문장과 초안을 빠르게 받아, 일단 시작하고 고쳐 쓰는 글쓰기 흐름.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff9f0a,#ff375f)"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">회의록 정리법 — 난잡한 메모를 한 장 보고서로</div><div class="card__desc">흩어진 회의 메모를 한 장짜리 보고서와 결정사항·할 일 목록으로 깔끔하게 정리하는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff9f0a,#ff375f)"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">이메일 작성 — 거절·독촉·사과·요청 톤별 템플릿</div><div class="card__desc">거절·독촉·사과·요청 등 쓰기 어려운 메일을 상황과 톤에 맞춰 5분에 완성하는 템플릿 모음.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff9f0a,#ff375f)"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">기획서 목차 만들기 — 아이디어를 논리 뼈대로</div><div class="card__desc">머릿속 막연한 아이디어를 설득력 있는 기획서 목차와 논리 구조로 잡아 주는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">글쓰기 초안 — 첫 문장이 안 써질 때 백지 깨기</div><div class="card__desc">백지 앞에서 막힐 때 첫 문장과 초안을 빠르게 받아, 일단 시작하고 고쳐 쓰는 글쓰기 흐름.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">회의록 정리법 — 난잡한 메모를 한 장 보고서로</div><div class="card__desc">흩어진 회의 메모를 한 장짜리 보고서와 결정사항·할 일 목록으로 깔끔하게 정리하는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">이메일 작성 — 거절·독촉·사과·요청 톤별 템플릿</div><div class="card__desc">거절·독촉·사과·요청 등 쓰기 어려운 메일을 상황과 톤에 맞춰 5분에 완성하는 템플릿 모음.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">글·문서 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">기획서 목차 만들기 — 아이디어를 논리 뼈대로</div><div class="card__desc">머릿속 막연한 아이디어를 설득력 있는 기획서 목차와 논리 구조로 잡아 주는 법.</div></div></div>
     </div>
   </div>
 </section>
@@ -174,10 +185,10 @@
     <h2 class="sec__title reveal">자료·데이터 실무</h2>
     <p class="sec__desc reveal">긴 문서와 표를 대화로 다루기</p>
     <div class="epgrid">
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff375f,#bf5af2)"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">PDF 요약 — 긴 보고서를 5분에 핵심만</div><div class="card__desc">수십 페이지 PDF 보고서·자료를 핵심만 5분에 요약해 빠르게 파악하는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff375f,#bf5af2)"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">비교표 만들기 — 여러 자료를 항목별 자동 정리</div><div class="card__desc">흩어진 여러 자료나 옵션을 항목별로 비교하는 표로 자동 정리해 한눈에 비교하는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff375f,#bf5af2)"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">엑셀 분석 — 표 데이터를 코드 없이 대화로</div><div class="card__desc">엑셀·표 데이터를 함수나 코드 없이 대화만으로 분석하고, 패턴과 인사이트를 뽑아내는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#ff375f,#bf5af2)"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">PPT 초안 — 기획안을 발표 슬라이드 구성안으로</div><div class="card__desc">기획안을 발표용 슬라이드 구성안(장표 흐름·슬라이드별 메시지)으로 바꿔 발표 준비 시간을 줄이는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">PDF 요약 — 긴 보고서를 5분에 핵심만</div><div class="card__desc">수십 페이지 PDF 보고서·자료를 핵심만 5분에 요약해 빠르게 파악하는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">비교표 만들기 — 여러 자료를 항목별 자동 정리</div><div class="card__desc">흩어진 여러 자료나 옵션을 항목별로 비교하는 표로 자동 정리해 한눈에 비교하는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">엑셀 분석 — 표 데이터를 코드 없이 대화로</div><div class="card__desc">엑셀·표 데이터를 함수나 코드 없이 대화만으로 분석하고, 패턴과 인사이트를 뽑아내는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">자료·데이터 실무</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">PPT 초안 — 기획안을 발표 슬라이드 구성안으로</div><div class="card__desc">기획안을 발표용 슬라이드 구성안(장표 흐름·슬라이드별 메시지)으로 바꿔 발표 준비 시간을 줄이는 법.</div></div></div>
     </div>
   </div>
 </section>
@@ -187,10 +198,10 @@
     <h2 class="sec__title reveal">나만의 클로드</h2>
     <p class="sec__desc reveal">한 번 세팅하면 매일 일하는 비서</p>
     <div class="epgrid">
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#64d2ff,#0071e3)"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">Projects로 나만의 전용 비서 만들기</div><div class="card__desc">Projects에 역할·자료를 저장해 매번 설명 없이 같은 방식으로 일하는 전용 비서를 만드는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#64d2ff,#0071e3)"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">Connectors 입문 — 메일·캘린더·노션 연결</div><div class="card__desc">메일·캘린더·노션 등 내 앱을 클로드에 연결해, 실제 내 데이터를 보고 일하게 하는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#64d2ff,#0071e3)"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">프롬프트 저장법 — 자주 쓰는 질문을 자산화</div><div class="card__desc">자주 쓰는 질문을 템플릿으로 저장해 매번 새로 쓰지 않고, 반복 업무를 나만의 자산으로 만드는 법.</div></div></div>
-<div class="card card--soon reveal"><div class="card__banner" style="background:linear-gradient(135deg,#64d2ff,#0071e3)"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">클로드 한 달 써보니 — 업무 루틴이 이렇게</div><div class="card__desc">한 달간 클로드를 실제 업무에 써보며 달라진 점과, 꾸준히 쓰게 만드는 루틴 정착 후기.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">Projects로 나만의 전용 비서 만들기</div><div class="card__desc">Projects에 역할·자료를 저장해 매번 설명 없이 같은 방식으로 일하는 전용 비서를 만드는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">Connectors 입문 — 메일·캘린더·노션 연결</div><div class="card__desc">메일·캘린더·노션 등 내 앱을 클로드에 연결해, 실제 내 데이터를 보고 일하게 하는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">프롬프트 저장법 — 자주 쓰는 질문을 자산화</div><div class="card__desc">자주 쓰는 질문을 템플릿으로 저장해 매번 새로 쓰지 않고, 반복 업무를 나만의 자산으로 만드는 법.</div></div></div>
+<div class="card card--soon reveal"><div class="card__banner card__banner--gray"><span class="card__kicker">나만의 클로드</span><span class="card__badge card__badge--soon">예정</span></div><div class="card__body"><div class="card__title">클로드 한 달 써보니 — 업무 루틴이 이렇게</div><div class="card__desc">한 달간 클로드를 실제 업무에 써보며 달라진 점과, 꾸준히 쓰게 만드는 루틴 정착 후기.</div></div></div>
     </div>
   </div>
 </section>
